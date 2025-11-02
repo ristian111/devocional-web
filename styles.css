@@ -1,0 +1,184 @@
+/* Reset y caja */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* Body: fondo que ocupa toda la ventana */
+body {
+  min-height: 100vh;
+  font-family: 'Montserrat', sans-serif;
+  background-color: rgb(86, 200, 253);
+  background-image: url("https://img.freepik.com/foto-gratis/hermoso-cielo-mar-azul-playa-mar_196038-298.jpg?size=626&ext=jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 20px 10px 60px;
+  overflow-x: hidden;
+}
+
+/* Contenedor centrado que limita el ancho para que la maqueta se vea igual en distintas pantallas */
+.page {
+  position: relative;
+  width: 1200px;        /* ancho base igual que en tu diseño local */
+  max-width: 96%;
+  min-height: 760px;
+  margin: 0 auto;
+  display: block;
+}
+
+/* Título superior */
+.titulo {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgb(56, 80, 87);
+  border: 1px solid #fff;
+  padding: 8px 20px;
+  font-size: 14px;
+  color: rgb(236,236,236);
+  font-weight: bold;
+  font-style: italic;
+  z-index: 200;
+  border-radius: 6px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.6);
+}
+.titulo h1 { margin: 0; font-size: 14px; }
+
+/* Recuadro "Un encuentro que TRANSFORMA" */
+.recuadro {
+  position: absolute;
+  top: 24px;
+  right: 140px;
+  width: 260px;
+  background-color: rgb(62,84,90);
+  border: 1px solid rgba(255,255,0,0.9);
+  padding: 10px 12px;
+  border-radius: 8px;
+  text-align: center;
+  z-index: 180;
+  box-shadow: 0 6px 16px rgba(255,255,0,0.12);
+}
+.recuadro h2 { font-family: 'Great Vibes', cursive; color: #fff; font-size: 20px; text-shadow: 2px 1px 2px #fff; margin-bottom: 6px;}
+.recuadro h3 { font-size: 26px; color: rgba(255,255,0,0.95); margin: 0; }
+
+/* Logo central (antes <img> suelto) */
+.logo-centro {
+  position: absolute;
+  top: 120px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 150;
+}
+.logo-fe { width: 160px; height: auto; display: block; }
+
+/* Tarjeta plegable (derecha) */
+.plegable {
+  position: absolute;
+  right: 140px;
+  bottom: 60px;
+  width: 240px;
+  height: 280px;
+  background: rgba(255,255,255,0.08);
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+  z-index: 140;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+  transition: transform .3s;
+}
+.plegable:hover { transform: scale(1.03); }
+.imagen-superior { width: 100%; height: 130px; object-fit: cover; }
+
+/* Bloques informativos a la izquierda (verticales) */
+.informacion, .informacion2, .informacion3 {
+  position: absolute;
+  left: 28px;
+  width: 260px;
+  background-color: aliceblue;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.6);
+  transition: all .35s ease;
+  overflow: visible;
+  z-index: 130;
+}
+/* posicionamiento vertical escalonado */
+.informacion { top: 46px; height: 48px; padding: 8px 12px; }
+.informacion2 { top: 120px; height: 48px; padding: 8px 12px; }
+.informacion3 { top: 194px; height: 48px; padding: 8px 12px; }
+
+/* Cuando se hace hover se expande */
+.informacion:hover { height: 200px; box-shadow: 3px 3px 10px rgba(204,187,51,0.8); transform: translateY(0); }
+.informacion2:hover { height: 200px; box-shadow: 3px 3px 10px rgba(196,52,209,0.8); }
+.informacion3:hover { height: 170px; box-shadow: 3px 3px 10px rgba(161,35,3,0.8); }
+
+/* Iconos que sobresalen */
+.imagen-lateral, .imagen-lateral2, .imagen-lateral3 {
+  position: absolute;
+  top: -28px;
+  left: 6px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: transparent;
+  z-index: 200;
+}
+
+/* Títulos dentro de los bloques */
+#titulo-p { margin-left: 48px; margin-top: 2px; font-size: 14px; }
+.titulo-p2 { margin-left: 48px; margin-top: 2px; font-size: 14px; }
+.titulo-p3 { margin-left: 48px; margin-top: 2px; font-size: 14px; }
+
+/* texto secundario oculto que aparece en hover */
+#parrafo-p, .parrafo-p2, .parrafo-p3 {
+  opacity: 0;
+  margin-top: 8px;
+  transition: opacity .6s;
+}
+.informacion:hover #parrafo-p { opacity: 1; }
+.informacion2:hover .parrafo-p2 { opacity: 1; }
+.informacion3:hover .parrafo-p3 { opacity: 1; }
+
+/* Estilos para la palabra mostaza/dios/reto */
+.mostaza { color: rgb(204,187,51); font-weight: bold; }
+.dios { color: rgb(196,52,209); font-weight: bold; }
+.reto { color: rgb(161,35,3); font-weight: bold; }
+
+/* Iframe (video) dentro del primer bloque */
+.informacion iframe {
+  position: absolute;
+  top: 54px;
+  left: 10px;
+  opacity: 0;
+  transition: opacity .4s;
+}
+.informacion:hover iframe { opacity: 1; width: 220px; height: 100px; }
+
+/* Hoja (imagen de fondo abajo) */
+.hoja {
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120%;
+  max-width: 1200px;
+  height: 120px;
+  object-fit: cover;
+  z-index: 10;
+  pointer-events: none;
+}
+
+/* Ajustes responsivos simples para pantallas muy pequeñas (si el usuario cambia ventana) */
+@media (max-width: 800px) {
+  .page { width: 96%; }
+  .recuadro { right: 20px; width: 200px; }
+  .plegable { right: 20px; bottom: 20px; width: 200px; }
+  .informacion, .informacion2, .informacion3 { left: 10px; width: calc(100% - 20px); }
+  .logo-fe { width: 120px; }
+  .titulo { left: 50%; transform: translateX(-50%); }
+}
